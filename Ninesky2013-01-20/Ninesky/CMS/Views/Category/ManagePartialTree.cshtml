@@ -1,0 +1,10 @@
+﻿<ul id="ctree" class="easyui-tree" data-options="url:'@Url.Action("ManageTreeChildrenJson", "Category")'"></ul>
+<script type="text/javascript">
+    using("tree", function () {
+        $("#ctree").tree({
+            onClick: function (node) {
+                top.location ="@Url.Action("ManageDetails", "Category")/"+node.id;
+            }
+        });
+    });
+</script>

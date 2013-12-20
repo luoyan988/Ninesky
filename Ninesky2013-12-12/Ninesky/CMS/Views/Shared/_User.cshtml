@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title-用户中心</title>
+    @Styles.Render("~/UserCss")
+    @Styles.Render("~/JqueryUiMetro")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/JqueryUi")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div class="header">
+        <div class="info"></div>
+        <div class="menubar">
+            <a href="@Url.Action("Default", "User")">用户管理</a><a href="@Url.Action("UserDefault", "Article")">文章管理</a>
+        </div>
+    </div>
+    <div class="wrapper">
+        @RenderBody()
+    </div>
+    <div class="footer">洞庭夕照 http://mzwhj.cnblogs.com</div>
+    <script type="text/javascript">
+        $(".menubar a").button();
+        $(document).ready(function () {
+            var _vwheight = $(document).height() - $(".header").height() - $(".footer").height();//可视的工作区域高度
+            var _lheight = $(".left").height();
+            var _wheight = $(".workspace").height();
+            if (_vwheight < _lheight) _vwheight = _lheight;
+            if (_vwheight < _wheight) _vwheight = _vwheight;
+            $(".workspace").height(_vwheight);
+            $(".left").height(_vwheight)
+        });
+        /*按钮*/
+    </script>
+</body>
+</html>

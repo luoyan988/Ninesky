@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title-管理中心</title>
+    @Styles.Render("~/ManageCss")
+    @Styles.Render("~/EasyUi/icon")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/EasyUi")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div class="header">
+        <div class="info"></div>
+        <div class="menubar">
+            <ul>
+                <li>@Html.ActionLink("系统管理", "dd", "dd")</li>
+                <li><a href="@Url.Action("Manage","Category")" class="easyui-menubutton" data-options="menu:'#menu_category'" >栏目管理</a></li>
+            </ul>
+            <div id="menu_category" class="migroup" data-options="iconCls:'icon-add'"><div>@Html.ActionLink("添加栏目","ManageAdd","Category")</div></div>
+        </div>
+    </div>
+    <div class="wrapper">
+    @RenderBody()
+    </div>
+</body>
+    <script type="text/javascript">
+        var _vwheight = $(document).height() - $(".header").height();//可视的工作区域高度
+        var _lheight = $(".left").height();
+        var _wheight = $(".workspace").height();
+        if (_vwheight < _lheight) _vwheight = _lheight;
+        if (_vwheight < _wheight) _vwheight = _vwheight;
+        $(".left").height(_vwheight)
+        $(".split").height(_vwheight);
+        $(".workspace").height(_vwheight);
+</script>
+</html>

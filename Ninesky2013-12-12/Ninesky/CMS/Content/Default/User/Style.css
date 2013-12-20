@@ -1,0 +1,305 @@
+﻿body {
+    margin: 0px;
+    font-size: 12px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+}
+
+.clear {
+    clear: both;
+}
+
+input {
+    border: 1px solid #cccccc;
+}
+
+    input:hover {
+        border: 1px ridge #3399ff;
+    }
+
+.field-validation-error {
+    font-weight: bold;
+    color: #e14f1c;
+}
+
+.input-validation-error {
+    border: 1px solid #cd0a0a !important;
+    background-color: #ffeeee;
+}
+
+.datepicker {
+    background-position: right center;
+    background-image: url('Images/Icon/Calendar_16.png');
+    background-repeat: no-repeat;
+    padding-right: 18px;
+    cursor: pointer;
+}
+
+.combotree {
+    background-position: right center;
+    background-image: url('Images/Icon/ArrowsDown_16.png');
+    background-repeat: no-repeat;
+    padding-right: 18px;
+    cursor: pointer;
+}
+
+.comboztree {
+    border: 1px ridge #cccccc;
+    position: absolute;
+    z-index: 10;
+    display: none;
+    background-color: #fcfcfc;
+}
+
+.header {
+    height: 100px;
+    width: 100%;
+}
+
+    .header .info {
+        height: 49px;
+        background-color: #3399ff;
+    }
+
+    .header .menubar {
+        padding: 10px 5px 10px 5px;
+        height: 31px;
+        background-color: #5a5a5a;
+    }
+
+.wrapper {
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.footer {
+    height: 34px;
+    line-height: 34px;
+    background-color: #3399ff;
+}
+
+.left {
+    width: 200px;
+    float: left;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: #C0C0C0;
+}
+
+.NavBox {
+    margin: 5px 5px 0px 5px;
+    padding: 0;
+}
+
+    .NavBox dt {
+        background-color: #3399ff;
+        height: 31px;
+        line-height: 31px;
+        color: #FFFFFF;
+        font-weight: bold;
+        padding-left: 40px;
+    }
+
+    .NavBox dd {
+        height: 31px;
+        line-height: 31px;
+        margin: 0px;
+    }
+
+        .NavBox dd:hover {
+            background-color: #b5b7b4;
+        }
+
+        .NavBox dd a {
+            display: block;
+            text-decoration: none;
+            padding-left: 60px;
+        }
+
+    .NavBox .ArticleTitle {
+        background-image: url('Images/Icon/Article_16.png');
+        background-repeat: no-repeat;
+        background-position: 20px center;
+    }
+
+    .NavBox .ArticleAdd {
+        background-image: url('Images/Icon/ArticleAdd_16.png');
+        background-repeat: no-repeat;
+        background-position: 40px center;
+    }
+
+    .NavBox .ArticleOwn {
+        background-image: url('Images/Icon/ArticleOwn_16.png');
+        background-repeat: no-repeat;
+        background-position: 40px center;
+    }
+
+    .NavBox .ArticleAll {
+        background-image: url('Images/Icon/ArticleAll_16.png');
+        background-repeat: no-repeat;
+        background-position: 40px center;
+    }
+
+    .NavBox .Comment {
+        background-image: url('Images/Icon/Comment_16.png');
+        background-repeat: no-repeat;
+        background-position: 40px center;
+    }
+
+.workspace {
+    float: right;
+    width: 100%;
+    height: auto;
+    margin-left: -201px;
+}
+
+    .workspace .inside {
+        margin: 5px 8px 8px 206px;
+        height: auto;
+        text-align: center;
+    }
+
+        .workspace .inside .notebar {
+            border: 1px solid #fcd113;
+            height: 31px;
+            line-height: 31px;
+            text-align: left;
+            background-color: #f8da4e;
+        }
+
+            .workspace .inside .notebar img {
+                width: 16px;
+                height: 16px;
+                vertical-align: middle;
+                margin-left: 8px;
+                margin-right: 8px;
+                background-color: #f7a50d;
+            }
+
+.formset {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b3b3b3;
+    background-color: #fcfcfc;
+    margin-top: 8px;
+}
+
+    .formset dl {
+        margin: 0;
+    }
+
+    .formset dt {
+        background-color: #CCCCCC;
+        text-align: left;
+        padding-left: 40px;
+        height: 31px;
+        line-height: 31px;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #b3b3b3;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 黑体;
+    }
+
+    .formset dd {
+    }
+
+    .formset input[type="text"], [type="number"], select {
+        width: 380px;
+        height:24px;
+    }
+
+    .formset .combotree {
+        width: 360px !important;
+    }
+
+    .formset input[type="datetime"] {
+        width: 360px;
+        height:24px;
+    }
+    .formset .Intro {
+        width: 360px;
+        height: 80px;
+    }
+    .formset .content {
+        width: 90%;
+        height: 600px;
+    }
+
+.modelitems_table {
+    margin-top: 8px;
+    border: 1px solid #b3b3b3;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .modelitems_table th {
+        background-color: #cccccc;
+        height: 28px;
+    }
+
+    .modelitems_table tr {
+        height: 28px;
+        border-bottom-style: ridge;
+        border-bottom-width: 1px;
+        border-bottom-color: #b3b3b3;
+    }
+
+    .modelitems_table .title {
+        text-align: left;
+    }
+
+.pager {
+    margin-top: 8px;
+    border: 1px solid #b3b3b3;
+    height: 28px;
+    line-height: 28px;
+}
+
+    .pager .linkbtn, .btn, .linkbatch, .linknum {
+        padding: 0px 4px 0px 4px;
+        margin: 0px 2px 0px 2px;
+        border: 1px solid #3399ff;
+        background-color: #3399ff;
+        display: inline-block;
+        line-height: 20px;
+        color: #fff;
+    }
+
+        .pager .linkbtn:hover, .linkbatch:hover, .linknum:hover {
+            background-color: #66b3ff;
+            border-bottom-color: #448dae;
+            color: #026890;
+        }
+
+    .pager .currentnum {
+        padding: 0px 4px 0px 4px;
+        margin: 0px 2px 0px 2px;
+        border: 1px solid #acdd4a;
+        background-color: #6eac2c;
+        display: inline-block;
+        line-height: 20px;
+        color: #fff;
+    }
+
+.editor-label {
+    text-align: left;
+    height: 31px;
+    line-height: 31px;
+}
+
+    .editor-label label {
+        font-size: 14px;
+        font-family: 黑体;
+    }
+
+.editor-field {
+    width: auto;
+    text-align: left;
+}

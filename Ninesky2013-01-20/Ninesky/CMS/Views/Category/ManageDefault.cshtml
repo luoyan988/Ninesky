@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "栏目管理";
+    Layout = "~/Views/Shared/_Manage.cshtml";
+}
+<div class="workspace">
+    <div class="inside">
+        <div class="notebar">
+            <img alt="" src="~/Content/Default/Manage/Images/Category.gif" />栏目管理
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>栏目</legend>
+                
+            </fieldset>
+        }
+    </div>
+</div>
+<div class="left">
+    <div class="top"></div>
+        @Html.Action("ManagePartialTree", "Category")
+</div>
+<div class="split"></div>
+<div class="clear"></div>

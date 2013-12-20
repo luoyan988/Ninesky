@@ -1,0 +1,19 @@
+﻿@model Ninesky.Models.User
+@{
+    ViewBag.Title = "首页";
+    Layout = "~/Views/Shared/_User.cshtml";
+}
+
+<div class="workspace">
+    <div class="inside">
+        <div class="notebar">
+            <img alt="" src="~/Content/Default/User/Images/Icon/Article_16.png" />您现在的位置：用户首页
+        </div>
+        <div>
+            <br />
+            欢迎您 @Model.UserName ！
+        </div>
+    </div>
+</div>
+<div class="left">@Html.Partial("PartialNavMenus")</div>
+<div class="clear"></div>

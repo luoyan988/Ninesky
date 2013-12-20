@@ -1,0 +1,69 @@
+﻿@model Ninesky.Models.SiteConfig
+
+@{
+    ViewBag.Title = "网站信息设置";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutSubPage.cshtml";
+}
+
+<h2>SiteConfig</h2>
+
+<fieldset>
+    <legend>SiteConfig</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Url)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Url)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LogoUrl)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LogoUrl)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MetaDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MetaDescription)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MetaKeywords)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MetaKeywords)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Copyright)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Copyright)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<script type="text/javascript">
+    parent.document.all("centeriframe").style.height = document.body.scrollHeight;
+    alert($(parent.document.all("centeriframe")));
+</script>

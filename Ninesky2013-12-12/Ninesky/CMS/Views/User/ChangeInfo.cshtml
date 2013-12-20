@@ -1,0 +1,108 @@
+﻿@model Ninesky.Models.User
+
+@{
+    ViewBag.Title = "修改个人资料";
+    Layout = "~/Views/Shared/_User.cshtml";
+}
+<div class="workspace">
+    <div class="inside">
+        <div class="notebar">
+            <img alt="" src="~/Content/Default/User/Images/Icon/Article_16.png" />您现在的位置： 用户首页
+        </div>
+        <div>
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+
+                <div class="formset">
+                    <dl>
+                        <dt>修改资料</dt>
+                        @Html.HiddenFor(model => model.UserId)
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.UserName)：@Html.DisplayFor(model => model.UserName)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Password)（必填）  输入正确的密码才能修改资料。
+                            </div>
+                            <div class="editor-field">
+                                @Html.Password("Password")
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Gender)：
+                            </div>
+                            <div class="editor-field">
+                                @Html.RadioButtonFor(model => model.Gender, 0) 男
+                    @Html.RadioButtonFor(model => model.Gender, 1) 女
+                    @Html.RadioButtonFor(model => model.Gender, 2) 保密
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Email) @Html.DisplayDescriptionFor(model => model.Email)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Email)
+                                @Html.ValidationMessageFor(model => model.Email)
+
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.QQ) @Html.DisplayDescriptionFor(model => model.QQ)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.QQ)
+                                @Html.ValidationMessageFor(model => model.QQ)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Tel) @Html.DisplayDescriptionFor(model => model.Tel)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Tel)
+                                @Html.ValidationMessageFor(model => model.Tel)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Address) @Html.DisplayDescriptionFor(model => model.Address)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Address)
+                                @Html.ValidationMessageFor(model => model.Address)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.PostCode) @Html.DisplayDescriptionFor(model => model.PostCode)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.PostCode)
+                                @Html.ValidationMessageFor(model => model.PostCode)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label"></div>
+                            <div class="editor-field">
+                                <input type="submit" value="修改" />
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="left">@Html.Partial("PartialNavMenus")</div>
+<div class="clear"></div>
+<script type="text/javascript">$("input[type='submit']").button();</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

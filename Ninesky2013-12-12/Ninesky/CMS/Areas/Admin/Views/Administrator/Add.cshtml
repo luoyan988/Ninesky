@@ -1,0 +1,34 @@
+﻿@model Ninesky.Areas.Admin.Models.Administrator
+<div class="fs_wapper">
+    @using (Html.BeginForm("Add", "Administrator", FormMethod.Post, new { id = "adminadd_form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <table>
+            <tr>
+                <th>@Html.LabelFor(model => model.AdminName)</th>
+                <td>@Html.EasyuiInput(model => model.AdminName, new { @class = "easyui-validatebox" })
+                    @Html.DisplayDescriptionFor(model => model.AdminName)</td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.PassWord)</th>
+                <td>@Html.EasyuiInput(model => model.PassWord, new { @class = "easyui-validatebox",type="password" })
+                    @Html.DisplayDescriptionFor(model => model.PassWord)</td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.Name)</th>
+                <td>@Html.EasyuiInput(model => model.Name, new { @class = "easyui-validatebox" })
+                    @Html.DisplayDescriptionFor(model => model.Name)</td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.Email)</th>
+                <td>@Html.EasyuiInput(model => model.Email, new { @class = "easyui-validatebox" })
+                    @Html.DisplayDescriptionFor(model => model.Email)</td>
+            </tr>
+        </table> 
+    }
+</div>
+<div style="margin:20px;">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-ok" onclick="AdminAddSave()">保存</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="AdminAddDlgClose()">关闭</a>
+</div>

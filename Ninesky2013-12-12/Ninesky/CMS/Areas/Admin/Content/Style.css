@@ -1,0 +1,154 @@
+﻿body {
+    margin: 0px 1px 0px 1px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+input, textarea {
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+fieldset {
+    border: 1px solid #1A7BC9;
+}
+
+.field-validation-valid {
+    font-weight: bold;
+    color: red;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: red;
+}
+
+#north {
+    background-image: url('images/north_bg.png');
+    background-repeat: repeat-x;
+    height: 80px;
+}
+
+#west {
+    width: 200px;
+}
+
+#south {
+    height: 2px;
+    background-color: #808080;
+}
+
+.leftsidebar {
+    margin: 0;
+    padding: 0;
+}
+
+    .leftsidebar ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .leftsidebar li {
+        height: 28px;
+        margin: 0;
+        padding: 0;
+        line-height: 28px;
+        list-style-type: none;
+        text-align: center;
+    }
+
+        .leftsidebar li:hover {
+            background-color: #9cc8f7;
+        }
+
+.admininfo_bar {
+    height: 28px;
+    line-height: 28px;
+    color: white;
+    background-color: #36424a;
+}
+
+    .admininfo_bar a {
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+header nav {
+    margin-top: 8px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 35px;
+    text-align: right;
+}
+
+.navbutton {
+    display: block;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    width: 129px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-decoration: none;
+    float: left;
+}
+
+    .navbutton:hover {
+        background-image: url('images/button_bg.png');
+        background-repeat: no-repeat;
+    }
+
+    .navbutton img {
+        height: 18px;
+        width: 18px;
+        vertical-align: middle;
+    }
+
+.c_navbar {
+    background-position: 8px center;
+    margin: 10px;
+    height: 27px;
+    line-height: 27px;
+    background-color: #1BA1E2;
+    font-weight: bold;
+    color: #fff;
+    background-image: url('icons/house.png');
+    background-repeat: no-repeat;
+    padding-left: 32px;
+}
+/*表单*/
+.fs_wapper {
+    border: 1px solid #c3d9e0;
+    margin: 10px;
+}
+
+    .fs_wapper .header {
+        background-color: #daeef5;
+        height: 26px;
+        line-height: 26px;
+        padding-left: 6px;
+        color: #404040;
+        font-weight: bold;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-color: #c3d9e0;
+    }
+
+    .fs_wapper input {
+        width: 300px;
+        height: 24px;
+    }
+
+    .fs_wapper textarea {
+        width: 300px;
+        height: 60px;
+    }
+
+.fieldset th span {
+    color: red;
+}

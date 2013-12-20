@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Ninesky.Models.Module>
+<div id="westmenu" class="easyui-accordion">
+    <div title="模块列表" class="leftsidebar">
+        <ul>
+            @foreach(var item in Model){
+            <li>@Html.ActionLink(item.Name, "Index", "Module", new { id = item.ModuleId }, new { @class = "westmenuitem" })</li>
+            }
+        </ul>
+    </div>
+</div>
+@*@Scripts.Render("~/Areas/Admin/Scripts/Category.js")*@
+<script type="text/javascript">
+    WestMenu();
+</script>

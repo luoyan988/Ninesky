@@ -1,0 +1,116 @@
+﻿@model Ninesky.Models.Category
+
+<div class="c_navbar">栏目管理 >> 修改栏目</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="fs_wapper">
+        <div class="header">修改栏目</div>@Html.HiddenFor(model => model.CategoryId)
+        @Html.ValidationSummary()
+        <table class="fieldset">
+            <tr>
+                <th>@Html.LabelFor(model => model.Name)<span>*</span></th>
+                <td>@Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                    @Html.DisplayDescriptionFor(model => model.Name)</td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.ParentId)<span>*</span></th>
+                <td>
+                    <input id="ParentId" name="ParentId" style="width: 200px;" data-url="@Url.Action("Tree", "Category")" value="@Model.ParentId" />
+                    @Html.ValidationMessageFor(model => model.ParentId)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.Type)<span>*</span></th>
+                <td>
+                    <input id="Type" name="Type" value="@Model.Type" />
+                    @Html.ValidationMessageFor(model => model.Type)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.Model)<span>*</span></th>
+                <td>
+                    <input id="Model" name="Model" value="@Model.Model" data-url="@Url.Action("Items", "Module", new { id = 1 })" />
+                     @Html.ValidationMessageFor(model => model.Model)
+                    @Html.DisplayDescriptionFor(model => model.Model)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.CategoryView)<span>*</span></th>
+                <td>
+                    <input id="CategoryView" class="easyui-combobox" name="CategoryView" data-options="valueField:'Name',textField:'Name',url:'@Url.Action("Views", "View", new { controllerName="Category" })'" value="@Model.CategoryView">
+                    @Html.ValidationMessageFor(model => model.CategoryView)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.ContentView)<span>*</span></th>
+                <td>
+                    <input id="ContentView" class="easyui-combobox" name="ContentView" data-url="@Url.Action("Views", "View")" data-options="valueField:'Name',textField:'Name',url:'@Url.Action("Views", "View", new { controllerName="Article" })'" value="@Model.ContentView">
+                    @Html.ValidationMessageFor(model => model.ContentView)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.LinkUrl)<span>*</span></th>
+                <td>
+                    @Html.EditorFor(model => model.LinkUrl)
+                    @Html.ValidationMessageFor(model => model.LinkUrl)
+                    @Html.DisplayDescriptionFor(model => model.LinkUrl)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.Order)<span>*</span></th>
+                <td>
+                    @Html.EditorFor(model => model.Order)
+                    @Html.ValidationMessageFor(model => model.Order)
+                    @Html.DisplayDescriptionFor(model => model.Order)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.ContentOrder)<span>*</span></th>
+                <td>
+                    <input id="ContentOrder" name="ContentOrder" class="easyui-combobox" style="width: 200px;"
+                        data-options="url:'@Url.Action("OrderList", "Item", new {area="" })',valueField:'Value',textField:'Name'" value="@Model.ContentOrder" />
+                    @Html.ValidationMessageFor(model => model.ContentOrder)
+                    @Html.DisplayDescriptionFor(model => model.ContentOrder)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.PageSize)<span>*</span></th>
+                <td>
+                    @Html.EditorFor(model => model.PageSize)
+                    @Html.ValidationMessageFor(model => model.PageSize)
+                    @Html.DisplayDescriptionFor(model => model.PageSize)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.RecordUnit)<span>*</span></th>
+                <td>
+                    @Html.EditorFor(model => model.RecordUnit)
+                    @Html.ValidationMessageFor(model => model.RecordUnit)
+                    @Html.DisplayDescriptionFor(model => model.RecordUnit)
+                </td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.RecordName)<span>*</span></th>
+                <td>
+                    @Html.EditorFor(model => model.RecordName)
+                    @Html.ValidationMessageFor(model => model.RecordName)
+                    @Html.DisplayDescriptionFor(model => model.RecordName)
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <a id="CategoryModify_Save" href="javascript:void()" class="easyui-linkbutton">修改</a>
+                    <a id="CategoryModify_Delete" href="javascript:void()" onclick="CategoryDel('@Url.Action("Del","Category")',@Model.CategoryId)" class="easyui-linkbutton">删除</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    @Scripts.Render("~/Areas/Admin/Scripts/Category.js");
+    <script type="text/javascript">
+        CategoryModify_Ready();
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

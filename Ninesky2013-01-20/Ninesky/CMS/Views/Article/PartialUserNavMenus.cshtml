@@ -1,0 +1,7 @@
+﻿<dl class="NavBox">
+    <dt class="ArticleTitle">文章管理</dt>
+    <dd class="ArticleAdd">@Html.ActionLink("添加文章", "UserAdd", "Article")</dd>
+    <dd class="ArticleOwn">@Html.ActionLink("我的文章", "UserOwn", new { id = "" })</dd>
+    <dd class="ArticleAll">@Html.ActionLink("全部文章", "UserAll", new { id = "" })</dd>
+    <dd class="Comment">@Html.ActionLink("评论管理", "UserComment", "User")</dd>
+</dl>

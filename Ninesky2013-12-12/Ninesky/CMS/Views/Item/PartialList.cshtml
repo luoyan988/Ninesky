@@ -1,0 +1,10 @@
+﻿@model PagerData<Ninesky.Models.ItemModel>
+<div class="cModel_List">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@Html.ActionLink(item.Title, "Index", "CommonModel", new { id = item.ItemId }, null)  <time>@item.ReleaseDate.ToString("yyyy-MM-dd")</time></li>
+        }
+    </ul>
+</div>
+@Html.Pager((RouteValueDictionary)ViewBag.roteValue, Model.Config, "pager", "pager")

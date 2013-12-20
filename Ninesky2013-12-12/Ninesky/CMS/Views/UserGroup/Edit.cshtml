@@ -1,0 +1,66 @@
+﻿@model Ninesky.Models.UserGroup
+
+@{
+    ViewBag.Title = "修改用户组";
+    Layout = "~/Views/Shared/_Manage.cshtml";
+}
+<div class="left">
+    <div class="top"></div>
+    左侧列表
+</div>
+<div class="split"></div>
+<div class="workspace">
+    <div class="inside">
+        <div class="notebar">
+            <img alt="" src="~/Content/Default/Manage/Images/UserGroup.gif" />修改用户组资料
+        </div>
+        @using (Html.BeginForm("Eidt","UserGroup"))
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>用户组资料</legend>
+
+                @Html.HiddenFor(model => model.UserGroupId)
+                <ul>
+                    <li>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Type)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DisplayTextFor(model => model.Type)
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Name)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Description)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Description)
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editor-label">
+                        </div>
+                        <div class="editor-field">
+                            <input type="submit" value="保存" />
+                        </div>
+                    </li>
+                </ul>
+            </fieldset>
+        }
+    </div>
+</div>
+<div class="clear"></div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

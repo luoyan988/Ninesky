@@ -1,0 +1,218 @@
+﻿@model Ninesky.Models.Category
+
+@{
+    ViewBag.Title = "栏目信息";
+    Layout = "~/Views/Shared/_Manage.cshtml";
+}
+
+<div class="workspace">
+    <div class="inside">
+        <div class="notebar">
+            <img alt="" src="~/Content/Default/Manage/Images/Category.gif" />栏目信息
+        </div>
+
+        @using (Html.BeginForm("ManageUpdate","Category"))
+        {
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>详细资料</legend>
+                <ul>
+                    @Html.HiddenFor(model => model.CategoryId)
+                    <li>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.CategoryId)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DisplayTextFor(model => model.CategoryId)
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Name)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.ParentId)
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBoxFor(model => model.ParentId, new { @class = "easyui-combotree", data_options = "url:'" + Url.Action("JsonTreeParent", "Category") + "'" })
+                            @Html.ValidationMessageFor(model => model.ParentId)
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Type)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DropDownList("Type")
+                            @Html.ValidationMessageFor(model => model.Type)
+                        </div>
+                    </li>
+                    <li id="li_model">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Model)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DropDownList("Model")
+                            @Html.ValidationMessageFor(model => model.Model)
+                        </div>
+                    </li>
+                    <li id="li_categoryview">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.CategoryView)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.CategoryView)
+                            @Html.ValidationMessageFor(model => model.CategoryView)
+                        </div>
+                    </li>
+                    <li id="li_contentview">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.ContentView)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.ContentView)
+                            @Html.ValidationMessageFor(model => model.ContentView)
+                        </div>
+                    </li>
+                    <li id="li_url">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.LinkUrl)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.LinkUrl)
+                            @Html.ValidationMessageFor(model => model.LinkUrl)
+                            @Html.DisplayDescriptionFor(model => model.LinkUrl)
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Order)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.Order)
+                            @Html.ValidationMessageFor(model => model.Order)
+                            @Html.DisplayDescriptionFor(model => model.Order)
+                        </div>
+                    </li>
+                    <li id="li_corder">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.ContentOrder)
+                        </div>
+                        <div class="editor-field">
+                            @Html.DropDownList("ContentOrders")
+                            @Html.ValidationMessageFor(model => model.ContentOrder)
+                            @Html.DisplayDescriptionFor(model => model.ContentOrder)
+                        </div>
+                    </li>
+                    <li id="li_psize">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.PageSize)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.PageSize)
+                            @Html.ValidationMessageFor(model => model.PageSize)
+                            @Html.DisplayDescriptionFor(model => model.PageSize)
+                        </div>
+                    </li>
+                    <li id="li_runit">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.RecordUnit)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.RecordUnit)
+                            @Html.ValidationMessageFor(model => model.RecordUnit)
+                            @Html.DisplayDescriptionFor(model => model.RecordUnit)
+                        </div>
+                    </li>
+                    <li id="li_rname">
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.RecordName)
+                        </div>
+                        <div class="editor-field">
+                            @Html.EditorFor(model => model.RecordName)
+                            @Html.ValidationMessageFor(model => model.RecordName)
+                            @Html.DisplayDescriptionFor(model => model.RecordName)
+                        </div>
+                    </li>
+                    <li>
+                        <div class="editor-label">
+                            <input id="Submit1" type="submit" value="修改" />
+                        </div>
+                        <div class="editor-field">
+                            <input id="btn_del" type="button" value="删除" />
+                        </div>
+                        
+                    </li>
+                </ul>
+            </fieldset>
+        }
+    </div>
+</div>
+<div class="left">
+    <div class="top"></div>
+    @Html.Action("ManagePartialTree", "Category")
+</div>
+<div class="split"></div>
+<div class="clear"></div>
+<script type="text/javascript">
+    Details();
+    $("#btn_del").click(function () {
+        if (confirm("您确定要删除改栏目吗？\n如该栏目有子栏目请先删除子栏目和栏目下的内容！")) {
+            $.post("@Url.Action("ManageDeleteJson","Category")", { id: $("#CategoryId").val() }, function (data) {
+                if (data) {
+                    alert("成功删除栏目！");
+                    top.location = "@Url.Action("ManageDefault", "Category")";
+                }
+                else {
+                    alert("删除栏目失败！\n如该栏目有子栏目请先删除子栏目。\n如该栏目下有内容请先删除内容。");
+                }
+            });
+        }
+    });
+    $("#Type").change(function () {
+        Details();
+    });
+    function Details() {
+        var v = $("#Type").val();
+        if (v == "0") {
+            $("#li_model").show();
+            $("#li_categoryview").show();
+            $("#li_contentview").show();
+            $("#li_url").hide();
+            $("#li_corder").show();
+            $("#li_psize").show();
+            $("#li_runit").show();
+            $("#li_rname").show();
+        }
+        else if (v == "1") {
+            $("#li_model").hide();
+            $("#li_categoryview").show();
+            $("#li_contentview").hide();
+            $("#li_url").hide();
+            $("#li_corder").hide();
+            $("#li_psize").hide();
+            $("#li_runit").hide();
+            $("#li_rname").hide();
+        }
+        else if (v == "2") {
+            $("#li_model").hide();
+            $("#li_categoryview").hide();
+            $("#li_contentview").hide();
+            $("#li_url").show();
+            $("#li_corder").hide();
+            $("#li_psize").hide();
+            $("#li_runit").hide();
+            $("#li_rname").hide();
+        }
+    }
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

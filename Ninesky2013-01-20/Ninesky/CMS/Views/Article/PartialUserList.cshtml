@@ -1,0 +1,28 @@
+﻿@model PagerData<Ninesky.Models.CommonModel>
+<table class="modelitems_table">
+    <tr>
+        <th>ID</th>
+        <th>栏目</th>
+        <th>标题</th>
+        <th>发表者</th>
+        <th>发布时间</th>
+        <th>状态</th>
+        <th>点击</th>
+        <th colspan="2">操作</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CommonModelId</td>
+            <td>[@Html.ActionLink(item.Category.Name, "UserOwn", new { id = item.CategoryId })]</td>
+            <td>@item.Title</td>
+            <td>@item.Inputer</td>
+            <td>@item.ReleaseDate</td>
+            <td>@Ninesky.Models.CommonModel.ContentStatus.FirstOrDefault(c => c.Value == item.Status.ToString()).Text</td>
+            <td>@item.Hits</td>
+            <td><a>修改</a></td>
+            <td><a>删除</a></td>
+        </tr>
+    }
+</table>
+@Html.PagerAjax("container", this.ViewContext.RouteData.Values,Model.Config,"pager","pager")

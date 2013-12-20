@@ -1,0 +1,16 @@
+﻿<div id="westmenu" class="easyui-accordion">
+    <div title="栏目列表">
+        <ul id="categoryTreeView" data-url="@Url.Action("Tree", "Category", new { categoryType = -1 })">
+        </ul>
+    </div>
+    <div title="栏目操作" class="leftsidebar">
+        <ul>
+            <li>@Html.ActionLink("添加栏目", "Add", "Category", null, new { @class = "westmenuitem" })</li>
+        </ul>
+    </div>
+</div>
+@Scripts.Render("~/Areas/Admin/Scripts/Category.js")
+<script type="text/javascript">
+    WestMenu();
+    CategoryMenu_Ready();
+</script>

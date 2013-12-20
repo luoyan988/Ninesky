@@ -1,0 +1,28 @@
+﻿@model Ninesky.Models.Category
+
+@{
+    ViewBag.Title = "关于我们";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="banner">
+    <img src="~/Content/Default/Images/banner.jpg" />
+</div>
+<div class="left">
+    <div class="children">
+        <dl>
+            <dt>@Model.Name</dt>
+            <dd>@Html.Action("PartialChildren", "Category", new { id = Model.CategoryId })</dd>
+        </dl>
+    </div>
+</div>
+<div class="content_cnt">
+    <div class="path">@Html.Action("PartialPath", "Category", new { id = Model.CategoryId })</div>
+    <div class="singlepage">
+        <div class="title">@Model.Name  About </div>
+        <p>
+            <b>NineSky</b>® 是洞庭夕照学习Mvc的一个项目。是想通过完成一个网站来不断的督促自己、不断的学习和实践。最终希望可以写出一个可简洁、易用的网站。
+        </p>
+        <p>目的：学习mvc4</p>
+        <p>目标：简单、易用、实用</p>
+    </div>
+</div>

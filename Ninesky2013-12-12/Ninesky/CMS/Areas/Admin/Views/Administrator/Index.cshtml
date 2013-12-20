@@ -1,0 +1,21 @@
+﻿@Scripts.Render("~/Areas/Admin/Scripts/Administrator.js")
+<div class="c_navbar">网站设置 >> 管理员管理</div>
+<div id="admin_wapper" class="fs_wapper">
+    <div class="header">管理员设置 </div>
+    <table id="admin_datagrid" class="easyui-datagrid" data-options="url:'@Url.Action("List", "Administrator")',singleSelect:true,toolbar:'#toolbar'">
+        <thead>
+            <tr>
+                <th data-options="field:'AdministratorId'">ID</th>
+                <th data-options="field:'IsPreset'">系统账号</th>
+                <th data-options="field:'AdminName'">用户名</th>
+                <th data-options="field:'Name'">姓名</th>
+                <th data-options="field:'Email'">电子邮件</th>
+            </tr>
+        </thead>
+    </table>
+    <div id="toolbar">
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-add" plain="true" onclick="AdminAddDlgShow()">添加</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-edit" plain="true" onclick="AdminDelRow('@Url.Action("Delete", "Administrator")')">删除</a>
+    </div>
+    <div id="adminadddlg" class="easyui-dialog" title="添加管理员" style="width:620px;height:290px;" data-options="iconCls:'icon-save',resizable:true,modal:true,closed:true,href:'@Url.Action("Add", "Administrator")'"></div>
+</div>

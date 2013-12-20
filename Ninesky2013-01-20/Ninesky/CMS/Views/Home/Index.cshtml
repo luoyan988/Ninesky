@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "主页";
+}
+<div class="banner">
+    <img src="~/Content/Default/Images/banner.jpg" />
+</div>
+<h3>欢迎访问网站首页！</h3> 
+@Html.PagerAjax("cb", this.ViewContext.RouteData.Values, 20, 20, 400, "篇", "文章", "DD", "dd", 10, true, true, true, true, true)
+<div id="cb">这是一个测试</div>

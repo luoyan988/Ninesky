@@ -1,0 +1,155 @@
+﻿@model Ninesky.Models.Article
+
+@{
+    ViewBag.Title = "添加文章";
+    Layout = "~/Views/Shared/_User.cshtml";
+}
+
+<div class="workspace">
+    <div class="inside">
+        <div class="notebar">
+            <img alt="" src="~/Content/Default/User/Images/Icon/Article_16.png" />您现在的位置： 文章管理
+        </div>
+        <div>
+
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+                <div class="formset">
+                    <dl>
+                        <dt>添加文章</dt>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.CommonModel.CategoryId) (必填) @Html.DisplayDescriptionFor(model => model.CommonModel.CategoryId)
+                            </div>
+                            <div class="editor-field">
+                                @Html.HiddenFor(model => model.CommonModel.CategoryId)
+                                <input type="text" class = "combotree" id="CommonModel_CategoryId_Text" />@Html.ValidationMessageFor(model => model.CommonModel.CategoryId)<br />
+                                <ul id="categorytree" class="ztree comboztree"><li>222</li></ul>
+                                
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.CommonModel.Title) (必填) @Html.DisplayDescriptionFor(model => model.CommonModel.Title)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.CommonModel.Title)
+                                @Html.ValidationMessageFor(model => model.CommonModel.Title)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Source)@Html.DisplayDescriptionFor(model => model.Source)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.Source)
+                                @Html.ValidationMessageFor(model => model.Source)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Intro)@Html.DisplayDescriptionFor(model => model.Intro)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextAreaFor(model => model.Intro, new { @class = "Intro" })
+                                @Html.ValidationMessageFor(model => model.Intro)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.CommonModel.PicUrl)@Html.DisplayDescriptionFor(model => model.CommonModel.PicUrl)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.CommonModel.PicUrl)
+                                @Html.ValidationMessageFor(model => model.CommonModel.PicUrl)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.CommonModel.Status)@Html.DisplayDescriptionFor(model => model.CommonModel.Status)
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownListFor(model => model.CommonModel.Status,Ninesky.Models.CommonModel.ContentStatus)
+                                @Html.ValidationMessageFor(model => model.CommonModel.Status)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.CommonModel.ReleaseDate) (必填) @Html.DisplayDescriptionFor(model => model.CommonModel.ReleaseDate)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBoxFor(model => model.CommonModel.ReleaseDate, new { @class = "datepicker", type = "datetime" })
+                                @Html.ValidationMessageFor(model => model.CommonModel.ReleaseDate)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.Content) (必填) @Html.DisplayDescriptionFor(model => model.Content)
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextAreaFor(model => model.Content, new { @class = "content" })
+                                @Html.ValidationMessageFor(model => model.Content)
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                            </div>
+                            <div class="editor-field">
+                                <input type="submit" value="发布" />
+                            </div>
+                        </dd>
+                        <dd>
+                            <div class="editor-label">
+                            </div>
+                            <div class="editor-field">
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="left">@Html.Partial("PartialUserNavMenus")<br /></div>
+<div class="clear"></div>
+<script type="text/javascript">
+    KindEditor.ready(function (K) {
+        K.create('#Content');
+    });
+    var setting = {
+        view: { selectedMulti: false },
+        callback: {
+            onClick: zTreeOnClick
+        }
+    };
+    $(document).ready(function () {
+        $.post("@Url.Action("JsonUserGeneralTree", "Category")", { model: "Article" }, function (data) {
+            var zTree = $.fn.zTree.init($("#categorytree"), setting, data);
+            zTree.expandAll(true);
+        });
+        $("#CommonModel_CategoryId_Text").click(function () {
+            $("#categorytree").show();
+        });
+    });
+    function zTreeOnClick(event, treeId, treeNode) {
+        if (treeNode.iconSkin == "canadd") {
+            $("#CommonModel_CategoryId").val(treeNode.id);
+            $("#CommonModel_CategoryId_Text").val(treeNode.name);
+            $("#categorytree").hide();
+        }
+        else {
+            alert("该栏目不能文章");
+        }
+    };
+    $("#CommonModel_ReleaseDate").datepicker({
+    })
+    $("input[type='submit']").button();
+    
+</script>
+@section Scripts {
+    @Styles.Render("~/ZtreeCss")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Ztree")
+    @Scripts.Render("~/bundles/kindeditor")
+}

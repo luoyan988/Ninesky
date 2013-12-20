@@ -1,0 +1,4 @@
+﻿@model Ninesky.Models.Article
+<div class="title">@Model.CommonModel.Title</div>
+<div class="Info">来源：@Model.Source 作者：@Model.Author 发布时间：@Model.CommonModel.ReleaseDate.ToLongDateString() 阅读：@Model.CommonModel.Hits </div>
+<div class="text">@Html.Raw(Model.Content)</div>

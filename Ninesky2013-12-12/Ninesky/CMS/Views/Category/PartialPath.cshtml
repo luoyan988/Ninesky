@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Ninesky.Models.Category>
+
+您现在的位置：@Html.ActionLink("网站首页", "Index", "Home")@foreach (var item in Model)
+                                                {
+    @Html.Raw(">>")  @Html.ActionLink(item.Name, "Index", "Category", new { id = item.CategoryId }, null)
+                                                }

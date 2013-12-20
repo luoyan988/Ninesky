@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>管理员登陆</title>
+    @Styles.Render("~/Css/Admin", "~/Areas/Admin/Content/Easyui/metro-blue/easyui.css", "~/Areas/Admin/Content/Easyui/icon.css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/Easyui/jquery.easyui.min.js", "~/Scripts/Easyui/locale/easyui-lang-zh_CN.js")
+    @Scripts.Render("~/Areas/Admin/Scripts/Administrator.js")
+</head>
+<body>
+    <div id="wrapper">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <div class="easyui-panel" title="请登录" style="width: 280px; height: 180px">
+                <dl>
+                    <dd>
+                        <div>
+                            <label>用户名</label>
+                        </div>
+                        <div>
+                            <input id="adminName" name="adminName" type="text" placeholder="请输入用户名" required maxlength="20" />
+                        </div>
+                    </dd>
+                    <dd>
+                        <div>
+                            <label>密码</label>
+                        </div>
+                        <div>
+                            <input id="passWord" name="passWord" type="password" placeholder="请输入密码" required maxlength="20" />
+                        </div>
+                    </dd>
+                    <dd>
+                        <div id="admin_login_msg" style="color: red; font-weight: bold"></div>
+                        <div>
+                            <button type="button" onclick="AdminLogin('@Url.Action("Index", "Home")')">登录</button><button type="button" style="margin-left:40px" onclick="window.location.href='@Url.Action("Index", "Home", new { area = "" })'">
+                                离开</button>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        }
+    </div>
+    <script type="text/javascript">
+        var lbox = $("#wrapper");
+        var x = ($(window).width() - 280) / 2;
+        var y = ($(window).height() - 180) / 2;
+        lbox.css("padding-top", y).css("padding-left", x);
+    </script>
+</body>
+</html>

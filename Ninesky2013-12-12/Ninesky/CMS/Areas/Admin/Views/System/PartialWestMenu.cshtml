@@ -1,0 +1,12 @@
+﻿<div id="westmenu" class="easyui-accordion">
+    <div title="网站设置" class="leftsidebar">
+        <ul>
+            <li>@Html.ActionLink("网站信息", "Config", "System", null, new { @class = "westmenuitem" })</li>
+            <li>@Html.ActionLink("管理员设置", "Index", "Administrator", null, new { @class = "westmenuitem" })</li>
+        </ul>
+    </div>
+</div>
+@Scripts.Render("~/Areas/Admin/Scripts/System.js")
+<script type="text/javascript">
+    WestMenu();
+</script>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>后台管理</title>
+    @Styles.Render("~/Css/Admin", "~/Areas/Admin/Content/Easyui/metro-blue/easyui.css", "~/Areas/Admin/Content/Easyui/icon.css")
+    @Scripts.Render("~/bundles/jQuery")
+    @Scripts.Render("~/Scripts/Easyui/jquery.easyui.min.js", "~/Scripts/Easyui/locale/easyui-lang-zh_CN.js")
+    @Scripts.Render("~/Areas/Admin/Scripts/global.js")
+</head>
+<body id="layout" class="easyui-layout">
+    <div id="north" data-options="region:'north'">
+        @Html.Action("Header", "Home")
+    </div>
+    <div id="south" data-options="region:'south'"></div>
+    <div id="west" data-options="region:'west',split:true" title="导航">
+    </div>
+    <div id="center" data-options="region:'center'">
+        <div class="c_navbar">后台管理首页</div>
+        <div class="fs_wapper">
+            <div class="header"></div>
+            <div title="欢迎" style="padding: 20px;">欢迎使用后台管理……</div>
+        </div>
+    </div>
+</body>
+</html>

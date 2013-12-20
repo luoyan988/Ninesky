@@ -1,0 +1,23 @@
+﻿@model Ninesky.Models.ItemModel
+
+@{
+    ViewBag.Title = Model.Title + "—" + Model.Category.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="banner">
+    <img src="~/Content/Default/Images/banner.jpg" />
+</div>
+<div class="left">
+    <div class="children">
+        <dl>
+            <dt>@Model.Category.Name</dt>
+            <dd>@Html.Action("PartialChildren", "Category", new { id = Model.CategoryId })</dd>
+        </dl>
+    </div>
+</div>
+<div class="content_cnt">
+    <div class="path">@Html.Action("PartialPath", "Category", new { id = Model.CategoryId })>> 详细内容</div>
+    <div class="content">
+        @Html.Action("PartialDetail", "Article", new { id = Model.ItemId})
+    </div>
+</div>

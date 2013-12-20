@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - </title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="menu">
+                <ul>
+                    <li>首页 |</li>
+                    <li> @Html.ActionLink("登陆","Login","User") |</li>
+                    <li> @Html.ActionLink("注册","Register","User") |</li>
+                    <li>加入收藏</li>
+                </ul>
+            </div>
+            <div class="nav"><div class="nav_l"></div>@Html.Action("PartialRoot","Category")</div>
+        </div>
+        <div class="main_wrapper">
+            <div class="main">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="footer">
+            <div class="menu"></div>
+            <div class="address">版权所有 http://mzwhj.cnblogs.com</div>
+        </div>
+    </div>
+</body>
+</html>

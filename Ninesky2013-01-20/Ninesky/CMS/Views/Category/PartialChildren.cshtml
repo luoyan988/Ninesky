@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Ninesky.Models.Category>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.Name, "Index", "Category", new { id = item.CategoryId }, null)</li>
+    }
+</ul>

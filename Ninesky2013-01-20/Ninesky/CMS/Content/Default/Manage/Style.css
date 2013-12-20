@@ -1,0 +1,212 @@
+﻿body {
+    margin: 0px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.clear {
+    clear: both;
+}
+
+.field-validation-error {
+    font-weight: bold;
+    color: red;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.header {
+    background-color: #41a9ce;
+    height: 130px;
+}
+
+    .header .info {
+        height: 88px;
+        width: 100px;
+    }
+
+    .header .menubar {
+        margin: 0px;
+        padding: 0px;
+        height: 42px;
+        width: 100%;
+        background-image: url('Images/menubar_bg.jpg');
+        background-repeat: repeat-x;
+    }
+
+        .header .menubar ul {
+            margin: 0px;
+            padding: 8px;
+            height: 26px;
+        }
+
+        .header .menubar li {
+            float: right;
+            width: 106px;
+            height: 26px;
+            background-image: url('Images/menu.png');
+            background-repeat: no-repeat;
+            margin-right: 5px;
+            margin-left: 5px;
+            list-style-type: none;
+        }
+
+        .header .menubar a {
+            display: block;
+            width: 106px;
+            height: 26px;
+            text-align: center;
+            line-height: 26px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #41a9ce;
+        }
+
+            .header .menubar a:hover {
+                background-image: url('Images/menuon.png');
+                background-repeat: no-repeat;
+                color: #fff;
+            }
+
+.migroup {
+    width: 106px;
+    display: none;
+}
+
+.wrapper {
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.left {
+    width: 197px;
+    float: left;
+    background-image: url('Images/left_bg.jpg');
+    background-repeat: repeat-y;
+}
+
+    .left .top {
+        width: 197px;
+        height: 5px;
+        background-image: url('Images/left_top.jpg');
+        background-repeat: no-repeat;
+    }
+
+.split {
+    float: left;
+    width: 9px;
+    height: auto;
+    background-image: url('Images/split_bg.jpg');
+    background-repeat: repeat-y;
+}
+
+.workspace {
+    float: right;
+    width: 100%;
+    height: auto;
+    margin-left: -208px;
+}
+
+    .workspace .inside {
+        margin: 8px 8px 8px 206px;
+        height: auto;
+        text-align: center;
+    }
+
+        .workspace .inside .notebar {
+            border: 1px solid #d6d6d6;
+            height: 31px;
+            line-height: 31px;
+            background-image: url('Images/notebar_bg.jpg');
+            background-repeat: repeat-x;
+            text-align: left;
+        }
+
+            .workspace .inside .notebar img {
+                width: 18px;
+                height: 18px;
+                vertical-align: middle;
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+
+        .workspace .inside .buttonbar {
+            height: 24px;
+            margin-top: 8px;
+            text-align: left;
+        }
+
+            .workspace .inside .buttonbar a {
+                padding: 0px 8px 0px 8px;
+                margin: 0px 8px 0px 0px;
+                border: 1px solid #d6d6d6;
+                text-decoration: none;
+                display: block;
+                height: 24px;
+                line-height: 24px;
+                background-image: url('Images/Button_bg.jpg');
+                background-repeat: repeat-x;
+                float: left;
+                color: #000000;
+            }
+
+                .workspace .inside .buttonbar a:hover {
+                    border: 1px solid #808080;
+                    background-image: url('Images/Button_bg_on.jpg');
+                    background-repeat: repeat-x;
+                }
+
+    .workspace table {
+        margin-top: 8px;
+        width: 100%;
+        border: 1px solid #d6d6d6;
+        table-layout: auto;
+        border-collapse: collapse;
+    }
+
+    .workspace tr {
+        height: 24px;
+    }
+
+    .workspace th {
+        background-color: #99CCFF;
+        border-right-style: solid;
+        border-bottom-style: solid;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-right-color: #d6d6d6;
+        border-bottom-color: #d6d6d6;
+    }
+
+    .workspace td {
+        border-right-style: solid;
+        border-bottom-style: solid;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+        border-right-color: #d6d6d6;
+        border-bottom-color: #d6d6d6;
+    }
+
+    .workspace fieldset {
+        margin-top: 8px;
+        width: auto;
+    }
+
+        .workspace fieldset li {
+            display: block;
+            min-height: 32px;
+            list-style-type: none;
+            text-align: left;
+        }
+
+.editor-label {
+    width: 120px;
+    float: left;
+}
+
+.editor-field {
+    width: auto;
+}

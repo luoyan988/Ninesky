@@ -1,0 +1,26 @@
+﻿@model Ninesky.Models.Category
+
+@{
+    ViewBag.Title = "关于我们";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="banner">
+    <img src="~/Content/Default/Images/banner.jpg" />
+</div>
+<div class="left">
+    <div class="children">
+        <dl>
+            <dt>@Model.Name</dt>
+            <dd>@Html.Action("PartialChildren", "Category", new { id = Model.CategoryId })</dd>
+        </dl>
+    </div>
+</div>
+<div class="content_cnt">
+    <div class="path">@Html.Action("PartialPath", "Category", new { id = Model.CategoryId })</div>
+    <div class="singlepage">
+        <div class="title">@Model.Name </div>
+        <p>
+            这里随便写
+        </p>
+    </div>
+</div>

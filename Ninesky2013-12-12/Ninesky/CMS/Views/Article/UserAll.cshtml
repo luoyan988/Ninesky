@@ -1,0 +1,39 @@
+﻿@model PagerData<Ninesky.Models.CommonModel>
+@if (Request.IsAjaxRequest()) { Html.RenderPartial("PartialUserList", Model); }
+else
+{
+    ViewBag.Title = "全部文章";
+    Layout = "~/Views/Shared/_User.cshtml";
+
+
+    <div class="workspace">
+        <div class="inside">
+            <div class="notebar">
+                <img alt="" src="~/Content/Default/User/Images/Icon/Article_16.png" />您现在的位置： 全部文章
+            </div>
+            <div id="container">
+                @{Html.RenderPartial("PartialUserList", Model);}
+            </div>
+        </div>
+    </div>
+    <div class="left">@Html.Partial("PartialUserNavMenus")<br />
+    </div>
+    <div class="clear"></div>
+    <script type="text/javascript">
+        $(".btnDel").click(function () {
+            if (confirm("你确定要删除该文章吗？")) {
+                var url = $(this).attr("href");
+                $.post(url, null, function (data) {
+                    if (data) {
+                        alert("删除成功!");
+                        window.location.reload();
+                    }
+                    else {
+                        alert("删除失败！");
+                    }
+                });
+            }
+            return false;
+        });
+    </script>
+}

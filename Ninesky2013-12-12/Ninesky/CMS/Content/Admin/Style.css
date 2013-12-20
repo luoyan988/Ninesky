@@ -1,0 +1,189 @@
+﻿body {
+    margin: 0px 1px 0px 1px;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
+    background-color: #eff4ff;
+}
+/*颜色定义开始*/
+.bg-color-blue {
+    background-color: #2d89ef !important;
+}
+
+.bg-color-blueDark {
+    background-color: #2b5797 !important;
+}
+
+.bg-color-darken {
+    background-color: #1d1d1d !important;
+}
+
+.bg-color-green {
+    background-color: #00a300 !important;
+}
+
+.bg-color-orange {
+    background-color: #e3a21a !important;
+}
+
+.bg-color-orangeDark {
+    background-color: #da532c !important;
+}
+
+.bg-color-white {
+    background-color: #ffffff !important;
+}
+
+.bg-color-yellow {
+    background-color: #ffc40d !important;
+}
+/*控件开始*/
+button {
+    border-style: none;
+    border-width: 0;
+    height: 32px;
+    min-width: 90px;
+    padding: 0;
+    line-height: 32px;
+}
+
+    button::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+input {
+    min-height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    padding: 0;
+}
+/*控件结束*/
+/*颜色定义结束*/
+.header {
+    height: 36px;
+}
+
+    .header ul {
+        margin: 0;
+        padding: 0;
+        text-align: right;
+    }
+
+    .header li {
+        width: 36px;
+        height: 36px;
+        list-style-type: none;
+        float: right;
+        margin-right: 18px;
+    }
+
+    .header a {
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: block;
+        width: 36px;
+        height: 36px;
+        overflow: hidden;
+    }
+
+        .header a:hover {
+            background-color: #e3a21a;
+        }
+
+    .header .logout {
+        background-image: url('Images/Ico/Logoff32-24.png');
+    }
+
+    .header .ch_password {
+        background-image: url('Images/Ico/Lock32.gif');
+    }
+
+.banner {
+    height: 56px;
+}
+
+nav {
+    height: 49px;
+}
+    nav ul {
+        margin:0;
+    }
+
+    nav a {
+        padding: 18px 15px 18px 15px;
+        display: block;
+        font-size: 13px;
+        font-weight: bold;
+        color: #FFFFFF;
+        line-height: 13px;
+        text-decoration: none;
+    }
+
+    nav li {
+        float: left;
+        border-right-style: solid;
+        border-right-width: 1px;
+        border-right-color: #444444;
+        list-style-type: none;
+    }
+
+    nav a:hover {
+        background-color: #2d89ef;
+    }
+
+.footer {
+    height: 28px;
+}
+
+.loginBox {
+    height: 340px;
+    width: 360px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -170px;
+    margin-left: -180px;
+}
+
+    .loginBox dt {
+        padding-left: 40px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 28px;
+        background-color: #e3a21a;
+        color: #1d1d1d;
+        margin-bottom: 40px;
+    }
+
+    .loginBox dd {
+        height: 80px;
+        color: white;
+        margin-left: 40px;
+    }
+
+    .loginBox input {
+        border-width: 0px;
+        width: 280px;
+        background-color: white;
+        color: #2d89ef;
+    }
+
+    .loginBox button {
+        width: 120px;
+        margin-top: 20px;
+        color: #2d89ef;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .loginBox .error {
+        color: red;
+        font-weight: bold;
+    }
+
+    .loginBox button img {
+        height: 32px;
+        width: 32px;
+        float: right;
+        background-color: #e3a21a;
+    }

@@ -1,0 +1,23 @@
+﻿@model Ninesky.Models.Category
+
+@{
+    ViewBag.Title = "栏目默认页";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="banner">
+    <img src="~/Content/Default/Images/banner.jpg" />
+</div>
+<div class="left">
+    <div class="children">
+        <dl>
+            <dt>@Model.Name</dt>
+            <dd>@Html.Action("PartialChildren", "Category", new { id = Model.CategoryId })</dd>
+        </dl>
+    </div>
+</div>
+<div class="content_cnt">
+    <div class="path">@Html.Action("PartialPath", "Category", new { id = Model.CategoryId })</div>
+    @if(Model.Model != null){
+        @Html.Action("PartialList", "Item", new { id = Model.CategoryId,roteValue = this.ViewContext.RouteData.Values })
+    }
+</div>

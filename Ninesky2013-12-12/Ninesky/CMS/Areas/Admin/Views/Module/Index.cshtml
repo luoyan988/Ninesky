@@ -1,0 +1,49 @@
+﻿@model Ninesky.Models.Module
+
+<div class="c_navbar">后台管理 >> 模块管理 >> 模块信息</div>
+<div class="easyui-tabs">
+    <div title="基本信息">
+        <div class="fs_wapper">
+            @using (Html.BeginForm("Modify", "Module", FormMethod.Post, new { id = "module_base" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                <div class="header">@Html.HiddenFor(model => model.ModuleId)</div>
+                @Html.ValidationSummary()
+                <table class="fieldset">
+                    <tr>
+                        <th>@Html.LabelFor(model => model.Name)<span>*</span></th>
+                        <td>@Html.TextBoxFor(model => model.Name, new { disabled = "disabled" })</td>
+                    </tr>
+                    <tr>
+                        <th>@Html.LabelFor(model => model.Enable)<span>*</span></th>
+                        <td>@Html.EditorFor(model => model.Enable)
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Html.LabelFor(model => model.Model)<span>*</span></th>
+                        <td>@Html.TextBoxFor(model => model.Model, new { disabled = "disabled" })</td>
+                    </tr>
+                    <tr>
+                        <th>@Html.LabelFor(model => model.Description)</th>
+                        <td>@Html.EditorFor(model => model.Description)
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>
+                            <a id="btn_modulebase_save" class="easyui-linkbutton">保存</a>
+                    </tr>
+                </table> 
+            }
+            @Scripts.Render("~/Areas/Admin/Scripts/Module.js")
+            <script>
+                ModuleBase_Ready();
+            </script>
+        </div>
+    </div>
+    <div title="上传设置">……</div>
+    <div title="权限设置">……</div>
+</div>

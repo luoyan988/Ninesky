@@ -1,0 +1,62 @@
+﻿@model Ninesky.Models.SiteConfig
+
+<div class="c_navbar">网站设置 >> 基本信息</div>
+
+@using (Html.BeginForm("Config", "System", FormMethod.Post, new { id = "siteconfig_form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="fs_wapper">
+        <div class="header">网站设置 @Html.HiddenFor(model => model.Id)</div>
+        @Html.ValidationSummary()
+        <table>
+            <tr>
+                <th>@Html.LabelFor(model => model.Name)</th>
+                <td>@Html.EasyuiInput(model=>model.Name,new{@class="easyui-validatebox"})
+                    @Html.DisplayDescriptionFor(model => model.Name)</td> 
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.Title)</th>
+                <td>@Html.EasyuiInput(model=>model.Title,new{@class="easyui-validatebox"})
+                    @Html.DisplayDescriptionFor(model => model.Title)</td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.Url)</th>
+                <td>@Html.EasyuiInput(model => model.Url, new { @class = "easyui-validatebox" })
+                    @Html.DisplayDescriptionFor(model => model.Url)</td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.LogoUrl)</th>
+                <td>@Html.EasyuiInput(model => model.LogoUrl, new { @class = "easyui-validatebox" })
+                    @Html.DisplayDescriptionFor(model => model.LogoUrl)</td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.MetaDescription)</th>
+                <td>
+                    @Html.EasyuiInput(model => model.MetaDescription, new { @class = "easyui-validatebox" }, "textarea")
+                    @Html.DisplayDescriptionFor(model => model.MetaDescription)</td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.MetaKeywords)</th>
+                <td>@Html.EasyuiInput(model => model.MetaKeywords, new { @class = "easyui-validatebox" }, "textarea")
+                    @Html.DisplayDescriptionFor(model => model.MetaKeywords)</td>
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.Copyright)</th>
+                <td>@Html.EasyuiInput(model => model.Copyright, new { @class = "easyui-validatebox" }, "textarea")
+                    @Html.DisplayDescriptionFor(model => model.Copyright)</td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><a id="save" href="javascript:void()" class="easyui-linkbutton">保存</a></td>
+            </tr>
+        </table>
+    </div>
+}
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#save").click(function () {
+            ConfigSubmit();
+        });
+    });
+</script>

@@ -1,0 +1,24 @@
+﻿@model Ninesky.Areas.Admin.Models.Administrator
+<header>
+    <div class="admininfo_bar">欢迎您：@Model.Name <a id="btnChangePassword" href="javascript:void(0)" data-center="@Url.Action("ChangePassword", "Administrator")">修改密码</a> @Html.ActionLink("退出", "Logout", "Administrator", null, new { @id = "btn_Logout" })</div>
+    <nav>
+        <a class="navbutton" id="home" href="#">
+            <img src="~/Areas/Admin/Content/images/home.png" />
+            首页</a>
+        <a class="navbutton" href="javascript:void(0)" data-title="内容管理" data-west="@Url.Action("Menu", "Category")">
+            <img src="~/Areas/Admin/Content/images/folder.png" />
+            内容管理</a>
+        <a class="navbutton" href="javascript:void(0)" data-title="用户管理" data-west="@Url.Action("Menu", "Category")">
+            <img src="~/Areas/Admin/Content/images/folder.png" />
+            用户管理</a>
+        <a class="navbutton" href="javascript:void(0)" data-title="模块管理" data-west="@Url.Action("Menu", "Module")" data-center="@Url.Action("Center", "Module")">
+            <img src="~/Areas/Admin/Content/images/folder.png" />
+            模块管理</a>
+        <a class="navbutton" href="javascript:void(0)" data-title="栏目管理" data-west="@Url.Action("Menu", "Category")">
+            <img src="~/Areas/Admin/Content/images/folder.png" />
+            栏目管理</a>
+        <a class="navbutton" href="#" data-title="系统设置" data-west="@Url.Action("PartialWestMenu", "System")">
+            <img src="~/Areas/Admin/Content/images/config.png" />
+            系统设置</a>
+    </nav>
+</header>
